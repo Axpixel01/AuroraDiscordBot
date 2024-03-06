@@ -1,5 +1,4 @@
 import disnake
-from main import bot
 
 bot = disnake.Client()
 
