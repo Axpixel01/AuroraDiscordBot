@@ -26,9 +26,10 @@ while True:
 
 @bot.event
 async def on_message(ctx):
-
+    if ctx.author == ctx.author.bot:
+        return
     
-    if ctx.content.startswith("salut"):
-        await ctx.send("Salut !")
+    if ctx.content.startswith("salut" or "bonjour"):
+        await ctx.channel.send("Salut !")
 
 bot.run("")
