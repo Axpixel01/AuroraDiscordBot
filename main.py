@@ -15,11 +15,12 @@ RPC.update(
 
 while True:
     time.sleep(15)
+    
 bot = disnake.Client()
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=disnake.Game(name="Joue à la version **Bêta**"))
+    await bot.change_presence(activity=disnake.Game(name="Joue à la version Bêta"))
     print("En Ligne")
 
 
