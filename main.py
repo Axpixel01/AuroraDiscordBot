@@ -9,12 +9,9 @@ async def on_ready():
 
 @bot.event
 async def on_message(ctx):
-    if ctx.author == ctx.author.bot:
-        return
-    
-    if ctx.content.startswith("salut" or "bonjour"):
-        await ctx.channel.send("Salut !")
-    
 
-bot.run("")
->>>>>>> 3aec99283d11de8e7bc4b98d1cb310f3c39a0e33
+
+    if ctx.content.startswith("salut"):
+        await ctx.send("Salut !")
+    
+bot.run("MTIxNDkxODc2NzUzNzE2MDIxMg.GvL6JG.1g8-5ff7UaCi79mzfWCayUHM5t_aP9OmoTyhP4")
