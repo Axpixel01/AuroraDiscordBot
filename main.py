@@ -7,11 +7,28 @@ async def on_ready():
     await bot.change_presence(activity=disnake.Game(name="Joue à la version **Bêta**"))
     print("En Ligne")
 
+from pypresence import Presence
+import time
+
+client_id = "1214918767537160212"
+RPC = Presence(client_id)
+RPC.connect()
+
+RPC.update(
+    state="Bienvenue sur le tuto de GCA",
+    large_image="python",
+    buttons=[{"label": "Discord GCA", "url": "https://discord.gg/gca"}],
+    details="J'ai désormais un profil personnaliser",
+)
+
+while True:
+    time.sleep(15)
+
 @bot.event
 async def on_message(ctx):
 
-
+    
     if ctx.content.startswith("salut"):
         await ctx.send("Salut !")
-    
-bot.run("MTIxNDkxODc2NzUzNzE2MDIxMg.GvL6JG.1g8-5ff7UaCi79mzfWCayUHM5t_aP9OmoTyhP4")
+
+bot.run("")
