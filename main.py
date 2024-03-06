@@ -1,23 +1,20 @@
 import disnake
 
-client = disnake.Client()
+bot = disnake.Client()
 
-print("Salut ! Je suis en ligne !")
-
-@client.event
+@bot.event
 async def on_ready():
-    await client.change_presence(activity=disnake.Game(name="Joue à la version Bêta"))
+    await bot.change_presence(activity=disnake.Game(name="Joue à la version **Bêta**"))
     print("En Ligne")
 
-@client.event
-async def on_message(message):
-       if message.author == client.user:
-           return
-       
-       if message() == 'salut' or message() == 'bonjour':
-           await message('Salut !')
-       
-       await client(message)
+@bot.event
+async def on_message(ctx):
+    if ctx.author == ctx.author.bot:
+        return
+    
+    if ctx.content.startswith("salut" or "bonjour"):
+        await ctx.channel.send("Salut !")
+    
 
-
-client.run("")
+bot.run("")
+>>>>>>> 3aec99283d11de8e7bc4b98d1cb310f3c39a0e33
