@@ -1,21 +1,5 @@
 import disnake
 
-import time
-
-client_id = "1214918767537160212"
-RPC = Presence(client_id)
-RPC.connect()
-
-RPC.update(
-    state="Bienvenue sur le tuto de GCA",
-    large_image="python",
-    buttons=[{"label": "Discord GCA", "url": "https://discord.gg/gca"}],
-    details="J'ai désormais un profil personnaliser",
-)
-
-while True:
-    time.sleep(15)
-    
 bot = disnake.Client()
 
 @bot.event
@@ -32,5 +16,17 @@ async def on_message(ctx):
     
     if ctx.content.startswith("salut" or "bonjour"):
         await ctx.channel.send("Salut !")
+    
+@bot.event
+async def on_message(ctx):
+    if ctx.author == ctx.author.bot:
+        return
+    
+    import random
 
+    nombre = random.randint(1, 100)
+    
+    if ctx.content.startswith("?roll"):
+        await ctx.channel.send(nombre)
+ 
 bot.run("")
